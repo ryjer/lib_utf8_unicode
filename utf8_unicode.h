@@ -14,9 +14,11 @@
     typedef uint32_t unicodeChar;
     typedef uint32_t unicode字符;
 
-    utf8字符体   从文件读取utf8字符(FILE *输入文件); // √ 已测试 
-    void         向文件写入utf8字符(FILE *输出文件, utf8字符体 字符体); // √ 已测试 
-    int         计算utf8占用字节数(uint8_t 首字节); // √ 已测试 
-    unicode字符    utf8转unicode(utf8字符体 utf8编码); // √ 已测试 
-    utf8字符体   unicode转utf8(unicode字符 字符编码); // √ 已测试
+    utf8字符体   从文件读取utf8字符(FILE *输入文件);                    // √ 已测试 
+    void         向文件写入utf8字符(FILE *输出文件, utf8字符体 字符体);  // √ 已测试
+    utf8字符体   读取utf8字符();                                       // √ 已测试
+    void         写入utf8字符(utf8字符体 字符体);                      // √ 已测试
+    int          计算utf8占用字节数(uint8_t 首字节);                   // √ 已测试 
+    unicode字符  utf8转unicode(utf8字符体 utf8编码);                   // √ 已测试 
+    utf8字符体   unicode转utf8(unicode字符 字符编码);                  // √ 已测试
 #endif
