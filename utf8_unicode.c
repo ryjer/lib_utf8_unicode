@@ -1,10 +1,10 @@
 #include "utf8_unicode.h"
 
 //√ 从文件中读取一个 utf8字符的编码，将其存入 uint64 类型变量中
-utf8字符体 读取utf8字符(FILE *inputFile) {
+utf8字符体 从文件读取utf8字符(FILE *输入文件) {
     utf8字符体 utf8;
     uint8_t 字节;
-    字节 = fgetc(inputFile); // 读取第一个字节
+    字节 = fgetc(输入文件); // 读取第一个字节
     // 判断字节数
     utf8.长度 = 计算utf8占用字节数(字节);
     if (utf8.长度 == -1) {
@@ -14,10 +14,19 @@ utf8字符体 读取utf8字符(FILE *inputFile) {
     utf8.编码[0] = 字节;
     // 根据字节数，读入剩余字节
     for (int i = 1; i < utf8.长度; i++) {
-        字节 = fgetc(inputFile); // 读入一个字节
+        字节 = fgetc(输入文件); // 读入一个字节
         utf8.编码[i] = 字节;
     }
     return utf8;
+}
+
+//√ 从文件中读取一个 utf8字符的编码，将其存入 uint64 类型变量中
+void 向文件写入utf8字符(FILE *输出文件, utf8字符体 字符体) {
+    utf8字符体 utf8;
+    uint8_t 字节;
+    for (int i = 0; i < 字符体.长度; i++) {
+        fputc(字符体.编码[i], 输出文件);
+    }
 }
 
 //√ utf8 首字节解析，根据首字节计算utf总占用字节
