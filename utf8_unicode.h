@@ -11,9 +11,10 @@
         uint8_t 编码[6]; // 最长6字节
     } utf8字符体;
 
-    typedef uint32_t unicodeChar;
+    // typedef uint32_t unicodeChar;
     typedef uint32_t unicode字符;
-
+    
+    // 提供以下函数接口
     utf8字符体   从文件读取utf8字符(FILE *输入文件);                    // √ 已测试 
     void         向文件写入utf8字符(FILE *输出文件, utf8字符体 字符体);  // √ 已测试
     utf8字符体   读取utf8字符();                                       // √ 已测试
