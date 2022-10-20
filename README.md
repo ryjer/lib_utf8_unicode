@@ -35,8 +35,9 @@ git clone https://gitee.com/ryjer/lib_utf8_unicode.git
 通过 `#include`  导入头文件 `utf8_unicode.h`，然后就可以使用其中的函数了
 
 ```C
+// main.c 源代码
 // 先导入 utf8_unicode.h 头文件
-#include "utf8_unicode.h"
+#include "lib_utf8_unicode/utf8_unicode.h"
 
 // 然后下面就可以调用其中的函数了
 int main() {
@@ -56,6 +57,22 @@ int main() {
     return 0;
 }
 ```
+
+## 3. 编译
+
+```bash
+gcc lib_utf8_unicode/utf8_unicode.c main.c -o main.o
+```
+
+然后就可以运行了
+
+```bash
+./main.o
+```
+
+## 4. 分别编译
+
+或者，你也可以独立编译各个c源文件，然后链接到一起
 
 # 说明
 
