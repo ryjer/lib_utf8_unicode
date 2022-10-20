@@ -1,7 +1,7 @@
 #include "utf8_unicode.h"
 
 //√ 从文件中读取一个 utf8字符的编码，将其存入 uint64 类型变量中
-utf8字符体 获取utf8字符(FILE *inputFile) {
+utf8字符体 读取utf8字符(FILE *inputFile) {
     utf8字符体 utf8;
     uint8_t 字节;
     字节 = fgetc(inputFile); // 读取第一个字节
