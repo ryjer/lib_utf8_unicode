@@ -1,6 +1,6 @@
 #include "utf8_unicode.h"
 
-//√ 从文件中读取一个 utf8字符的编码，将其存入 utf8字符体 返回
+// 从文件中读取一个 utf8字符的编码，将其存入 utf8字符体 返回 √
 utf8字符体 从文件读取utf8字符(FILE *输入文件) {
     utf8字符体 utf8;
     uint8_t 字节;
@@ -20,24 +20,24 @@ utf8字符体 从文件读取utf8字符(FILE *输入文件) {
     return utf8;
 }
 
-// 从标准输入stdin读取一个 utf字符的编码，将其存入 utf8字符体 返回
+// 从标准输入stdin读取一个 utf字符的编码，将其存入 utf8字符体 返回 √
 utf8字符体 读取utf8字符() {
     return 从文件读取utf8字符(stdin);
 }
 
-//√ 向指定输出文件写入一个 utf字符
+// 向指定输出文件写入一个 utf字符 √
 void 向文件写入utf8字符(FILE *输出文件, utf8字符体 字符体) {
     for (int i = 0; i < 字符体.长度; i++) {
         fputc(字符体.编码[i], 输出文件);
     }
 }
 
-// 向标准输出stdout写入一个 utf字符的编码
+// 向标准输出stdout写入一个 utf字符的编码 √
 void 写入utf8字符(utf8字符体 字符体) {
     return 向文件写入utf8字符(stdout, 字符体);
 }
 
-//√ utf8 首字节解析，根据首字节计算utf总占用字节
+// utf8 首字节解析，根据首字节计算utf总占用字节 √
 int 计算utf8占用字节数(uint8_t 首字节) {
     int 占用字节数 = 0;
     uint8_t 第一位 = (首字节 & 0b10000000); // 获取第一位
@@ -55,7 +55,7 @@ int 计算utf8占用字节数(uint8_t 首字节) {
     return 占用字节数;
 }
 
-// 将一个 utf8字节串 转换为 unicode编码字符
+// 将一个 utf8字节串 转换为 unicode编码字符 √
 unicode字符 utf8转unicode(utf8字符体 字符体) {
     unicode字符 unicode编码 = 0;
     if (字符体.长度 == 1) { // 单字节编码
@@ -77,7 +77,7 @@ unicode字符 utf8转unicode(utf8字符体 字符体) {
     return unicode编码;
 }
 
-// 将一个32位 unicode编码字符 转换为 utf8多字节串
+// 将一个32位 unicode编码字符 转换为 utf8多字节串 √
 utf8字符体 unicode转utf8(unicode字符 字符编码) {
     utf8字符体 字符体;
     // 根据 unicode 编码大小判断对应utf8字节数
