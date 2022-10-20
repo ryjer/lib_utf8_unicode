@@ -42,7 +42,7 @@ git clone https://gitee.com/ryjer/lib_utf8_unicode.git
 int main() {
     FILE * inputFile;
     inputFile = fopen("test.txt", "r");
-    utf8字符体 ch = 获取utf8字符(inputFile); // 读取utf8编码
+    utf8字符体 ch = 读取utf8字符(inputFile); // 读取utf8编码
     printf("输入utf8: 长度:%d\t 编码: %02x %02x %02x\n", ch.长度, ch.编码[0], ch.编码[1], ch.编码[2]);
     unicode字符 unicode编码 = utf8转unicode(ch); // 转换为 unicode 编码
     printf("utf8转unicode: %08x\n", unicode编码);
@@ -54,7 +54,7 @@ int main() {
 
 # 说明
 
-## 类型
+## 类型定义
 
 **utf8字符体**类型，支持最长6字节的utf8字符编码。由于C语言不支持直接返回数组，需要使用结构体包装返回
 
@@ -72,9 +72,9 @@ typedef struct{
 typedef uint32_t unicode字符;
 ```
 
-## 1. 获取utf8字符(FILE *输入文件) -> utf8字符体 
+## 从文件读取utf8字符(FILE *输入文件) -> utf8字符体 
 
-功能：从指定输入文件中读取**一个utf8字符**，然后返回包含该utf8字节串的 uint64_t 类型的64位数。
+功能：从指定**输入文件**中读取**一个utf8字符**，返回包含该utf8字节串的**utf8字符体**。然后将文件指针后移到该utf8字符的下一个字节
 
 有以下3种思路，最终使用思路2
 
@@ -84,7 +84,11 @@ typedef uint32_t unicode字符;
 
 思路3：由于首字节前几位的指示位，因而首字节作为数字的大小范围是不重叠的。可以用不同的区间来区分对应utf8的字节数。
 
-## 2. 计算utf8占用字节数(uint8_t 首字节) -> int
+## 向文件写入utf8字符(FILE *输出文件, utf8字符体 字符体)
+
+功能：向指定**输入文件**写入一个**utf8字符**，然后将文件指针后移到该utf8字符的下一个字节
+
+## 计算utf8占用字节数(uint8_t 首字节) -> int
 
 **纯函数**
 
@@ -92,7 +96,7 @@ typedef uint32_t unicode字符;
 
 提示：需要先从首字节得到整个utf8字节串的字节数，才能读入单个utf字符的编码
 
-## 3. utf8转unicode(utf8字符体 utf8编码) -> unicode字符
+## utf8转unicode(utf8字符体 utf8编码) -> unicode字符
 
 **纯函数**
 
@@ -102,7 +106,7 @@ typedef uint32_t unicode字符;
 
 注意：这里使用 **utf8字符体**，并返回 **unicode字符**。这是本文件定义的2种类型
 
-## 4. unicode转utf8(unicode字符 字符编码) -> utf8字符体
+## unicode转utf8(unicode字符 字符编码) -> utf8字符体
 
 **纯函数**
 
