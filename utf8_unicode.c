@@ -1,7 +1,7 @@
 #include "utf8_unicode.h"
 
 // 从文件中读取一个 utf8字符的编码，将其存入 utf8字符体 返回 √
-utf8字符体 从文件读取utf8字符(FILE *输入文件) {
+utf8字符体 文件_读取utf8字符(FILE *输入文件) {
     utf8字符体 utf8;
     uint8_t 字节;
     字节 = fgetc(输入文件); // 读取第一个字节
@@ -22,11 +22,11 @@ utf8字符体 从文件读取utf8字符(FILE *输入文件) {
 
 // 从标准输入stdin读取一个 utf字符的编码，将其存入 utf8字符体 返回 √
 utf8字符体 读取utf8字符() {
-    return 从文件读取utf8字符(stdin);
+    return 文件_读取utf8字符(stdin);
 }
 
 // 向指定输出文件写入一个 utf字符 √
-void 向文件写入utf8字符(FILE *输出文件, utf8字符体 字符体) {
+void 文件_写入utf8字符(FILE *输出文件, utf8字符体 字符体) {
     for (int i = 0; i < 字符体.长度; i++) {
         fputc(字符体.编码[i], 输出文件);
     }
@@ -34,7 +34,7 @@ void 向文件写入utf8字符(FILE *输出文件, utf8字符体 字符体) {
 
 // 向标准输出stdout写入一个 utf字符的编码 √
 void 写入utf8字符(utf8字符体 字符体) {
-    return 向文件写入utf8字符(stdout, 字符体);
+    return 文件_写入utf8字符(stdout, 字符体);
 }
 
 // utf8 首字节解析，根据首字节计算utf总占用字节 √

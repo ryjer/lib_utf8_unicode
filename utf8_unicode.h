@@ -15,8 +15,8 @@
     typedef uint32_t unicode字符;
     
     // 提供以下函数接口
-    utf8字符体   从文件读取utf8字符(FILE *输入文件);                    // √ 已测试 
-    void         向文件写入utf8字符(FILE *输出文件, utf8字符体 字符体);  // √ 已测试
+    utf8字符体   文件_读取utf8字符(FILE *输入文件);                    // √ 已测试 
+    void         文件_写入utf8字符(FILE *输出文件, utf8字符体 字符体);  // √ 已测试
     utf8字符体   读取utf8字符();                                       // √ 已测试
     void         写入utf8字符(utf8字符体 字符体);                      // √ 已测试
     int          计算utf8占用字节数(uint8_t 首字节);                   // √ 已测试 
