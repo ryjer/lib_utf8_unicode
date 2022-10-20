@@ -107,3 +107,173 @@ utf8字符体 unicode转utf8(unicode字符 字符编码) {
     }
     return 字符体;
 }
+/******************************************************************************
+*                            ASCII判断函数
+ ******************************************************************************/
+
+// 数字集合 {0 1 2 3 4 5 6 7 8 9}
+bool 是数字(unicode字符 字符) {
+    if (字符 <= 0x7F && isdigit(字符)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// 数字集合 {0 1 2 3 4 5 6 7 8 9}
+bool 是10进制数字(unicode字符 字符) {
+    if (字符 <= 0x7F && isdigit(字符)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// { 0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f }
+bool 是16进制数字(unicode字符 字符) {
+    if (字符 <= 0x7F && isxdigit(字符)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// 集合 { a b c d e f g h i j k l m n o p q r s t u v w x y z }
+bool 是小写字母(unicode字符 字符) {
+    if (字符 <= 0x7F && islower(字符)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// 集合 {A B C D E F G H I J K L M N O P Q R S T U V W X Y Z }
+bool 是大写字母(unicode字符 字符) {
+    if (字符 <= 0x7F && isupper(字符)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// 小写字母和大写字母
+bool 是字母(unicode字符 字符) {
+    if (字符 <= 0x7F && isalpha(字符)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// 字母和10进制数字
+bool 是字母数字(unicode字符 字符) {
+    if (字符 <= 0x7F && isalnum(字符)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// 集合{! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~}
+bool 是标点符号(unicode字符 字符) {
+    if (字符 <= 0x7F && ispunct(字符)) { 
+        return true;
+    } else {
+        return false;
+    }
+}
+// 字母、数字、标点 等可显示的图形
+bool 是图形字符(unicode字符 字符) {
+    if ((字符 <= 0x7F && isgraph(字符))) { 
+        return true;
+    } else {
+        return false;
+    }
+}
+// 空格 制表\t 换行\n 垂直制表\v 换页\f 回车\r
+bool 是空白(unicode字符 字符) {
+    if (字符 <= 0x7F && isspace(字符)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// {数字、字母、标点符号、空白}
+bool 是可打印字符(unicode字符 字符) {
+    if (字符 <= 0x7F && isprint(字符)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// 不可打印控制字符
+bool 是控制字符(unicode字符 字符) {
+    if (字符 <= 0x7F && iscntrl(字符)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// 是 ASCII 码
+bool 是ascii(unicode字符 字符) {
+    if (字符 <= 0x7F) {
+        return true;
+    } else {
+        return false;
+    }
+}
+/******************************************************************************
+*                            ASCII转换函数
+ ******************************************************************************/
+
+// 转小写字母, 不能转换则直接返回
+unicode字符 转小写(unicode字符 字符) {
+    if (!是小写字母(字符)) {
+        return (unicode字符)tolower(字符);
+    } else {
+        return 字符;
+    }
+}
+// 转大写字母
+unicode字符 转大写(unicode字符 字符) {
+    if (!是大写字母(字符)) {
+        return (unicode字符)toupper(字符);
+    } else {
+        return 字符;
+    }
+}
+
+/******************************************************************************
+*                            汉字判断函数
+ ******************************************************************************/
+// 常见汉字，部分汉奸字可能无法识别
+bool 是汉字(unicode字符 字符) {
+    if ((字符<=0x4E00 && 字符<=0x9FD5)||(字符<=0x3400 && 字符<=0x4DB5)||(字符<=0x20000 && 字符<=0x2A6D6)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+// 常见中文标点
+bool 是中文标点符号(unicode字符 字符) {
+    if ((0x3000<=字符 && 字符<=0x303F) || (0xFF00<=字符 && 字符<=0xFFEF) || (0x2000<=字符 && 字符<=0x206F)) { //后面是CJK横排标点符号[0x3000,0x303F]和半宽和全宽格式字符[0xFF00, 0xFFEF]
+        return true;
+    } else {
+        return false;
+    }
+}
+/******************************************************************************
+*                            数学判断函数
+ ******************************************************************************/
+// 常见数学运算符，不包括其它数学符号
+bool 是数学运算符(unicode字符 字符) {
+    if ((字符<=0x2200 && 字符<=0x22FF)||(字符<=0x2A00 && 字符<=0x2AFF)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+/******************************************************************************
+*                            希腊字母判断函数
+ ******************************************************************************/
+// 在Unicode码表中，希腊字母和科普特语coptic字母是放在一起的。这里全部视作希腊字母
+bool 是希腊字母(unicode字符 字符) {
+    if ((字符<=0x0370 && 字符<=0x03FF)) {
+        return true;
+    } else {
+        return false;
+    }
+}
