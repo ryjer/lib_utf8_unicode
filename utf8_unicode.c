@@ -4,8 +4,8 @@
 utf8字符体 文件_读取utf8字符(FILE *输入文件) {
     utf8字符体 utf8;
     uint8_t 字节;
-    if ((字节=fgetc(输入文件)) == EOF) { // 读取第一个字节
-        utf8.长度 = EOF;                   // EOF错误，将长度置为EOF后返回
+    if ((字节=fgetc(输入文件)) == (uint8_t)EOF) { // 读取第一个字节
+        utf8.长度 = 0;                   // EOF错误，则长度为0
         return utf8;
     }
     // 判断字节数
@@ -56,6 +56,10 @@ int 计算utf8占用字节数(uint8_t 首字节) {
 // 将一个 utf8字节串 转换为 unicode编码字符 √
 unicode字符 utf8转unicode(utf8字符体 字符体) {
     unicode字符 unicode编码 = 0;
+    // 文件结束检查 EOF
+    if (字符体.长度 == 0) {
+        return (unicode字符) (EOF);
+    }
     if (字符体.长度 == 1) { // 单字节编码
         return (unicode字符) (字符体.编码[0]);
     }
@@ -90,6 +94,8 @@ utf8字符体 unicode转utf8(unicode字符 字符编码) {
         字符体.长度 = 5;
     } else if (字符编码 <= 0x7FFFFFFF) {
         字符体.长度 = 6;
+    } else { // 其它例外情况视作非法
+        字符体.长度 = 0;
     }
     // 根据字节长度生成utf字节,从unicode低位每次取6位,最后取首字节
     for (int i = 字符体.长度-1; i > 0; i--) {
