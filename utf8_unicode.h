@@ -1,5 +1,5 @@
 #ifndef UTF8_UNICODE_H
-    #define UTF8_UNICODE_H
+#define UTF8_UNICODE_H
     // 将utf8 转换为 utf32小端字节序
     // 包名：utf8 或者 unicode
     #include <stdio.h>

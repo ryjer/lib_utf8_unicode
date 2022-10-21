@@ -123,7 +123,7 @@ bool 是10进制数字(unicode字符 字符) {
         return false;
     }
 }
-// { 0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f }
+// {0 1 2 3 4 5 6 7 8 9 A B C D E F a b c d e f}
 bool 是16进制数字(unicode字符 字符) {
     if (字符 <= 0x7F && isxdigit(字符)) {
         return true;
@@ -131,7 +131,7 @@ bool 是16进制数字(unicode字符 字符) {
         return false;
     }
 }
-// 集合 { a b c d e f g h i j k l m n o p q r s t u v w x y z }
+// 集合 {a b c d e f g h i j k l m n o p q r s t u v w x y z}
 bool 是小写字母(unicode字符 字符) {
     if (字符 <= 0x7F && islower(字符)) {
         return true;
@@ -139,7 +139,7 @@ bool 是小写字母(unicode字符 字符) {
         return false;
     }
 }
-// 集合 {A B C D E F G H I J K L M N O P Q R S T U V W X Y Z }
+// 集合 {A B C D E F G H I J K L M N O P Q R S T U V W X Y Z}
 bool 是大写字母(unicode字符 字符) {
     if (字符 <= 0x7F && isupper(字符)) {
         return true;
