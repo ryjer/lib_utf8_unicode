@@ -4,7 +4,10 @@
 utf8字符体 文件_读取utf8字符(FILE *输入文件) {
     utf8字符体 utf8;
     uint8_t 字节;
-    字节 = fgetc(输入文件); // 读取第一个字节
+    if ((字节 = fgetc(输入文件)) == EOF) { // 读取第一个字节
+        utf8.长度 == EOF;                   // EOF错误，直接返回
+        return utf8;
+    }
     // 判断字节数
     utf8.长度 = 计算utf8占用字节数(字节);
     if (utf8.长度 == -1) {
