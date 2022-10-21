@@ -185,7 +185,7 @@ bool 是图形字符(unicode字符 字符) {
 }
 // 空格 制表\t 换行\n 垂直制表\v 换页\f 回车\r
 bool 是空白(unicode字符 字符) {
-    if (字符 <= 0x7F && isspace(字符)) {
+    if ((字符<=0x7F && isspace(字符)) || (字符==0x00A0 || 字符==0x3000)) { // 不间断空格\u00A0，全角空格(中文符号)\u3000,中文文章中使用;
         return true;
     } else {
         return false;
