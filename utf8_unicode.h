@@ -14,7 +14,7 @@
     } utf8字符体;
 
     // typedef uint32_t unicodeChar;
-    typedef uint32_t unicode字符;
+    typedef int32_t unicode字符;
     
     // 提供以下函数接口
     utf8字符体   文件_读取utf8字符(FILE *输入文件);                    // √ 已测试 
