@@ -27,7 +27,7 @@ n|  (十六进制)          | (二进制)                                       
 ## 1. 下载本库
 
 ```bash
-git clone https://gitee.com/ryjer/lib_utf8_unicode.git
+git clone https://gitee.com/ryjer/utf8_unicode.git
 ```
 
 ## 2. 使用示例
