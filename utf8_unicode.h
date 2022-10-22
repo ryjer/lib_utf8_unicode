@@ -26,27 +26,27 @@
     unicode字符  utf8转unicode(utf8字符体 utf8编码);                   // √ 已测试 
     utf8字符体   unicode转utf8(unicode字符 字符编码);                  // √ 已测试
     // ASCII判断函数
-    bool 是数字(unicode字符 字符);
-    bool 是10进制数字(unicode字符 字符);
-    bool 是16进制数字(unicode字符 字符);
-    bool 是小写字母(unicode字符 字符);
-    bool 是大写字母(unicode字符 字符);
-    bool 是字母(unicode字符 字符);
-    bool 是字母数字(unicode字符 字符);
-    bool 是标点符号(unicode字符 字符);
-    bool 是图形字符(unicode字符 字符);
-    bool 是空白(unicode字符 字符);
-    bool 是可打印字符(unicode字符 字符);
-    bool 是控制字符(unicode字符 字符);
-    bool 是ascii(unicode字符 字符);
+    bool 是数字(unicode字符 字符);                  // √ 已测试
+    bool 是10进制数字(unicode字符 字符);            // √ 已测试
+    bool 是16进制数字(unicode字符 字符);            // √ 已测试
+    bool 是小写字母(unicode字符 字符);              // √ 已测试
+    bool 是大写字母(unicode字符 字符);              // √ 已测试
+    bool 是字母(unicode字符 字符);                  // √ 已测试
+    bool 是字母数字(unicode字符 字符);              // √ 已测试
+    bool 是标点符号(unicode字符 字符);              // √ 已测试
+    bool 是图形字符(unicode字符 字符);              // √ 已测试
+    bool 是空白(unicode字符 字符);                  // √ 已测试
+    bool 是打印字符(unicode字符 字符);              // √ 已测试
+    bool 是控制字符(unicode字符 字符);              // √ 已测试
+    bool 是ascii(unicode字符 字符);                 // √ 已测试
     // ASCII转换函数
     unicode字符 转小写(unicode字符 字符);
     unicode字符 转大写(unicode字符 字符);
     // 汉字判断函数
-    bool 是汉字(unicode字符 字符);         // 不包括标点符号
-    bool 是中文标点符号(unicode字符 字符);
+    bool 是汉字(unicode字符 字符);         // √ 已测试
+    bool 是中文标点符号(unicode字符 字符);  // √ 已测试
     // 数学判断函数
-    bool 是数学运算符(unicode字符 字符);
+    bool 是数学运算符(unicode字符 字符);    // √ 已测试
     // 希腊字母判断函数
-    bool 是希腊字母(unicode字符 字符);
+    bool 是希腊字母(unicode字符 字符);      // √ 已测试
 #endif
