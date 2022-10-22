@@ -37,7 +37,7 @@ git clone https://gitee.com/ryjer/lib_utf8_unicode.git
 ```C
 // main.c 源代码
 // 先导入 utf8_unicode.h 头文件
-#include "lib_utf8_unicode/utf8_unicode.h"
+#include "utf8_unicode/utf8_unicode.h"
 
 // 然后下面就可以调用其中的函数了
 int main() {
@@ -61,7 +61,7 @@ int main() {
 ## 3. 编译
 
 ```bash
-gcc lib_utf8_unicode/utf8_unicode.c main.c -o main.o
+gcc main.c utf8_unicode/utf8_unicode.c -o main.o
 ```
 
 然后就可以运行了

@@ -8,7 +8,7 @@ int main() {
     inputFile = fopen("test.txt", "r");
     printf("字符\t utf8\t\t unicode\t 再编码\t\t 重显\n");
     utf8字符体 输入字符 = 文件_读取utf8字符(inputFile); // 读取utf8编码
-    while (输入字符.长度 !=0 ) {
+    while (输入字符.长度 != 0) {
         写入utf8字符(输入字符);
         printf("\t {%d {%02x %02x %02x}}\t ", 输入字符.长度, 输入字符.编码[0], 输入字符.编码[1], 输入字符.编码[2]);
         unicode字符 unicode编码 = utf8转unicode(输入字符); // 转换为 unicode 编码
