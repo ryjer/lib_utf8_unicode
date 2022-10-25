@@ -42,6 +42,7 @@
     // ASCII转换函数
     unicode字符 转小写(unicode字符 字符);
     unicode字符 转大写(unicode字符 字符);
+    uint8_t 十六进制字符转数字(unicode字符 字符);
     // 汉字判断函数
     bool 是汉字(unicode字符 字符);         // √ 已测试
     bool 是中文标点符号(unicode字符 字符);  // √ 已测试
