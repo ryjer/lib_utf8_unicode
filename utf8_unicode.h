@@ -28,6 +28,8 @@
     // 综合判断函数
     bool 是左引号(unicode字符 字符);
     bool 是右引号(unicode字符 字符);
+    bool 是单引号(unicode字符 字符);
+    bool 是双引号(unicode字符 字符);
     // ASCII判断函数
     bool 是数字(unicode字符 字符);                  // √ 已测试
     bool 是10进制数字(unicode字符 字符);            // √ 已测试
