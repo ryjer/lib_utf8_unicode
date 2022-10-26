@@ -25,6 +25,9 @@
     int          计算utf8占用字节数(uint8_t 首字节);                   // √ 已测试 
     unicode字符  utf8转unicode(utf8字符体 utf8编码);                   // √ 已测试 
     utf8字符体   unicode转utf8(unicode字符 字符编码);                  // √ 已测试
+    // 综合判断函数
+    bool 是左引号(unicode字符 字符);
+    bool 是右引号(unicode字符 字符);
     // ASCII判断函数
     bool 是数字(unicode字符 字符);                  // √ 已测试
     bool 是10进制数字(unicode字符 字符);            // √ 已测试
