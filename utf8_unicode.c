@@ -1,4 +1,5 @@
 #include "utf8_unicode.h"
+#include <ctype.h>
 
 // 从文件中读取一个 utf8字符的编码，将其存入 utf8字符体 返回 √
 utf8字符体 文件_读取utf8字符(FILE *输入文件) {

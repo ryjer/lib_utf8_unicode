@@ -2,9 +2,8 @@
 #define UTF8_UNICODE_H
     // 将utf8 转换为 utf32小端字节序
     // 包名：utf8 或者 unicode
-    #include <stdio.h>
+    #include <stdio.h>  //提供 FILE 文件类型
     #include <stdint.h>
-    #include <ctype.h>
     #include <stdbool.h>
 
     // 同时表示 字节长度 和 编码内容，同时解决c语言不能返回数组的问题
