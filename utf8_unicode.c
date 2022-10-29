@@ -12,7 +12,7 @@ utf8字符体 文件_读取utf8字符(FILE *输入文件) {
     // 判断字节数
     utf8.长度 = 计算utf8占用字节数(字节);
     if (utf8.长度 == -1) {
-        fprintf(stderr, "文件 utf8 编码错误，有字符编码不规范!\n");
+        fprintf(stderr, "文件utf8编码错误，有字符编码不规范!\n");
     }
     // 配置第一个字节
     utf8.编码[0] = 字节;
@@ -122,7 +122,7 @@ bool 是左引号(unicode字符 字符) {
         return false;
     }
 }
-// 广义右引号 ' " ` ‘ “
+// 广义右引号 ' " ` ’ ”
 bool 是右引号(unicode字符 字符) {
     if (字符=='\''||字符=='`'||字符=='\"'||字符==0x2019||字符==0x201d) { //'’':U+2019 '”':U+201D
         return true;
@@ -130,7 +130,7 @@ bool 是右引号(unicode字符 字符) {
         return false;
     }
 }
-// 广义单引号
+// 广义单引号 ' ‘ ’
 bool 是单引号(unicode字符 字符) {
     if (字符=='\'' || 字符==0x2018 || 字符==0x2019){
         return true;
@@ -138,7 +138,7 @@ bool 是单引号(unicode字符 字符) {
         return false;
     }
 }
-// 广义双引号
+// 广义双引号 " “ ”
 bool 是双引号(unicode字符 字符) {
     if (字符=='\"' || 字符==0x201c || 字符==0x201d){
         return true;
