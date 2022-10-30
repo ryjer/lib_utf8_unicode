@@ -12,11 +12,12 @@
         uint8_t 编码[6]; // 最长6字节
     } utf8字符体;
 
-    // typedef uint32_t unicodeChar;
     typedef uint32_t unicode字符;
     
     // 提供以下函数接口
     // 从文件中读取一个utf8字符的编码，将其存入'utf8字符体'返回。如果文件结束则读取长度为0
+
+    utf8字符体   原始utf8字符串_读取utf8字符(char * 字符串指针);
     utf8字符体   文件_读取utf8字符(FILE *输入文件);                    // √ 已测试 
     void         文件_写入utf8字符(FILE *输出文件, utf8字符体 字符体);  // √ 已测试
     utf8字符体   读取utf8字符();                                       // √ 已测试
@@ -25,11 +26,13 @@
     unicode字符  utf8转unicode(utf8字符体 utf8编码);                   // √ 已测试 
     utf8字符体   unicode转utf8(unicode字符 字符编码);                  // √ 已测试
     // 综合判断函数
+
     bool 是左引号(unicode字符 字符);
     bool 是右引号(unicode字符 字符);
     bool 是单引号(unicode字符 字符);
     bool 是双引号(unicode字符 字符);
     // ASCII判断函数
+
     bool 是数字(unicode字符 字符);                  // √ 已测试
     bool 是10进制数字(unicode字符 字符);            // √ 已测试
     bool 是16进制数字(unicode字符 字符);            // √ 已测试
@@ -44,14 +47,18 @@
     bool 是控制字符(unicode字符 字符);              // √ 已测试
     bool 是ascii(unicode字符 字符);                 // √ 已测试
     // ASCII转换函数
+
     unicode字符 转小写(unicode字符 字符);
     unicode字符 转大写(unicode字符 字符);
     uint8_t 十六进制字符转数字(unicode字符 字符);
     // 汉字判断函数
+
     bool 是汉字(unicode字符 字符);         // √ 已测试
     bool 是中文标点符号(unicode字符 字符);  // √ 已测试
     // 数学判断函数
+
     bool 是数学运算符(unicode字符 字符);    // √ 已测试
     // 希腊字母判断函数
+
     bool 是希腊字母(unicode字符 字符);      // √ 已测试
 #endif
